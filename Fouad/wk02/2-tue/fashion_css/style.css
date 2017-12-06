@@ -4,6 +4,8 @@
 
 .container {
 	width: 90%;
+	margin: 0auto;
+	
 }
 
 h1, h3 {
@@ -64,4 +66,9 @@ aside > ul > li {
 
 footer > ul > li{
 	display: inline;
+}
+
+#options {
+	display: flex;
+	width: 100%;
 }
