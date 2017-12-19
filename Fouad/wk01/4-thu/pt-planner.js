@@ -1,23 +1,103 @@
+// train lines
+var lines = {
+	alamein: ["Flinders Street", "Richmond", "East Richmond", "Burnley", "Hawthorn", "Glenferrie"],
+  glenWaverly: ["Flagstaff", "Melbourne Central", "Parliament", "Richmond", "Kooyong", "Tooronga"],
+  sandringham: ["Southern Cross", "Richmond", "South Yarra", "Prahran", "Windsor"]
+};
 
-/*var alamein = ["flinders street", "richmond", "east richmond", "burnley", "hawthorn", "glenferrie"];
-*/var glenWaverly = ["flagstaff",  "melbourne central", "parliament", "richmond", "kooyong", "tooronga"];
-/*var sandringham = ["southern cross", "richmond", "south yarra", "prahran", "windsor"];*/
+// user input
+var origin = prompt("Choose a starting station");
+var destination = prompt("select your destination");
 
-// // All 3 train lines intersect at RICHMOND.
-// // work out DISPLAY and JOURNEY when given ORIGIN and DESTINIATION.
-// // 
+// Chosen origin array
+var ChosenLine = "";
 
-var origin = prompt("Hello! What is your current location?");
 
-var destination = prompt("Where would you like to go?");
+// check if which line station is in
 
-var selectedOrigin = glenWaverly.indexOf(origin);
+function findingStationLine (){
 
-var selectedDestination = glenWaverly.indexOf(destination);
+	if (lines.alamein.includes(origin)){
+		ChosenLine = lines.alamein
+	}
 
-for ( var i = glenWaverly[selectedOrigin]; i < glenWaverly[selectedDestination].length; i++){
-	console.log(i);
+	else if (lines.glenWaverly.includes(origin)) {
+		ChosenLine = lines.glenWaverly
+	}
+
+	else if (lines.sandringham.includes(origin)){
+		ChosenLine = lines.sandringham
+	}
+
+	else  {
+		console.log("station does not exist!")
+		 
+	};
+	
+	return ChosenLine	
 }
+
+findingStationLine();
+
+	// calculating indexes
+	var originIndex = ChosenLine.indexOf(origin);
+	var destIndex = ChosenLine.indexOf(destination);
+
+	// calculating number of stops
+
+	var numberOfStops = destIndex - originIndex;
+
+
+	// creating journey
+	var journey = ChosenLine.slice(originIndex, destIndex+1)
+
+	var outputToUser = function() {
+		console.log("origin: " + origin);
+		console.log("destination: " + destination);
+
+		console.log(numberOfStops + " stops");
+		console.log(journey.join(" ---> "))
+}
+
+outputToUser()
+
+// .includes() method. 
+
+/*use Object.keys(lines) to find properties in lines object*/
+
+// or For In
+
+// below is another solution
+/*for ( var i = chosenOrigin; i <= chosenDestination; i++){
+	if (i === chosenDestination){
+		route += glenWaverly[i]
+	}	
+
+	else {
+
+		route += (glenWaverly[i] + " -->");
+		
+	}
+
+}*/
+/*console.log(route);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -2,3 +2,23 @@ div {
 	margin-left: 20%;
 	margin-right: 12%;
 }
+
+h1, footer, p {
+	color: grey;
+}
+
+.date {
+	color: #00bfff;
+}	
+
+a {
+	color: #00bfff;
+}	
+
+p, footer {
+	font-size: 15px;
+}
+
+.companies {
+	border: 5px solid lightgrey;
+}
