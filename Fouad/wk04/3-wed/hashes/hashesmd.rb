@@ -1,4 +1,4 @@
-  require 'pry' 
+  require 'pry'
 
 # A. Given the following data structure:
 a = ["Anil", "Erik", "Jonathan"]

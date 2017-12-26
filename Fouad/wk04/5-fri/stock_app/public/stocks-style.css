@@ -1,0 +1,26 @@
+.indexBody {
+	margin: auto;
+	background-color: mistyrose;
+	text-align: center;
+	font-family: 'Oxygen', sans-serif;
+}
+
+p {
+	color: darkblue;
+	font-size: 50px;
+}
+
+.percentage {
+	color: red;
+}
+
+
+.aboutBody {
+	margin: auto;
+	text-align: center;
+	background-color: gold;
+}
+
+a {
+	font-size: 10px;
+}

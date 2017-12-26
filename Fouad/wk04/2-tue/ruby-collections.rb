@@ -16,13 +16,16 @@ puts planeteers[1]
 
 puts planeteers.push("Heart")
 
+
 # Remove "Captain Planet" from the array (without using a method)
 
 puts planeteers -= ["Captain Planet"]
 
 # Combine planeteers with rangers = ["Red", "Blue", "Pink", "Yellow", "Black"] and save the result in a variable called heroes.
 
-puts heroes = planeteers.concat rangers
+planeteers.concat rangers
+
+puts heroes = planeteers + rangers
 
 # Alphabetize the contents of heroes using a method.
 
@@ -39,3 +42,12 @@ puts heroes.shuffle
 puts heroes.sample
 
 # Select all elements in heroes that begin with "B" using a method.
+
+i = 0
+
+while i < 5 
+
+	puts  heroes[i].start_with?("B")
+
+	i++
+end

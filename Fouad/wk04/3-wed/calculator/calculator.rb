@@ -20,9 +20,9 @@ loop do
 
 		if calculator_function == "addition"
 			
-		# add
-		print "Your result is " 
-		puts a + b
+			# add
+			print "Your result is " 
+			puts a + b
 			
 
 		elsif calculator_function == "subtraction"	
@@ -59,14 +59,14 @@ loop do
 
 		if ask_again == "yes"
 
-		calculator_function = true
+			calculator_function = true
 
 
 		elsif ask_again == "no"
-	
-		puts "You quit!"
+		
+			puts "You quit!"
 
-		break
+			break
 
 		end
 
