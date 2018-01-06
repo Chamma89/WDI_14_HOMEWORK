@@ -1,104 +1,176 @@
-// train lines
+YES// train lines
 var lines = {
-	alamein: ["Flinders Street", "Richmond", "East Richmond", "Burnley", "Hawthorn", "Glenferrie"],
-  glenWaverly: ["Flagstaff", "Melbourne Central", "Parliament", "Richmond", "Kooyong", "Tooronga"],
-  sandringham: ["Southern Cross", "Richmond", "South Yarra", "Prahran", "Windsor"]
+	alamein: ["flinders", "richmond", "east richmond", "burnley", "hawthorn", "glenferrie"],
+  glenWaverly: ["flagstaff", "melbourne central", "parliament", "richmond", "kooyong", "tooronga"],
+  sandringham: ["southern cross", "richmond", "south yarra", "prahran", "windsor"]
 };
 
 // user input
-var origin = prompt("Choose a starting station");
-var destination = prompt("select your destination");
+var origin = prompt("Choose a starting station").replace(/ /g, "").toLowerCase();
+var destination = prompt("select your destination").replace(/ /g, "").toLowerCase();
 
 // Chosen origin array
-var ChosenLine = "";
+var chosenLine = "";
+
+var chosenLine2 = "";
+
+var originIndex;
+
+var destIndex;
+
+var numberOfStops;
+
+var final;
 
 
-// check if which line station is in
+findingStationLine();
+
+// if stations are on different lines 
+
+
+	var firstLine = findingTwoStations(origin);
+
+	var secondLine = findingTwoStations(destination);
+
+if(!chosenLine.includes(origin) || !chosenLine.includes(destination)){
+
+		
+	if(firstLine.indexOf(origin) < firstLine.indexOf("Richmond") && secondLine.indexOf("Richmond") < secondLine.indexOf(destination)){
+		route();
+	}
+
+	else if(firstLine.indexOf(origin) < firstLine.indexOf("Richmond") && secondLine.indexOf("Richmond") > secondLine.indexOf(destination)){
+		secondLine.reverse();
+		route();
+	}
+
+
+	else if(firstLine.indexOf(origin) < firstLine.indexOf("Richmond") && secondLine.indexOf(destination) === 0){
+		secondHalf = [destination];
+		var firstHalf = firstLine.slice(firstLine.indexOf(origin), firstLine.indexOf("Richmond") + 1);
+	
+		var secondHalf = [destination];
+
+		final = firstHalf.concat(secondHalf);
+	}
+
+	else if(firstLine.indexOf(origin) > firstLine.indexOf("Richmond") || firstLine.indexOf("Richmond") < firstLine.indexOf("Richmond")){
+		secondLine.reverse();
+		firstLine.reverse();
+		route();
+	}
+
+	else if(firstLine.indexOf(origin) > firstLine.indexOf("Richmond")){
+
+		firstLine = firstLine.reverse();
+		route();
+
+	}
+
+	console.log("Origin: " + origin);
+
+	console.log("destination: " + destination);	
+
+	console.log(final.length - 1 + " stops");
+
+	console.log(final.join(" --> "));
+
+}
+
+// If it's origin and destination are on the same line
+
+else {
+
+		// Check for Reverse	
+	if(chosenLine.indexOf(origin) > chosenLine.indexOf(destination)){
+		
+		chosenLine.reverse();
+	}
+		// calculating indexes
+	originIndex = chosenLine.indexOf(origin);
+	destIndex = chosenLine.indexOf(destination);
+
+	// calculating number of stops
+
+	numberOfStops = destIndex - originIndex;
+	outputToUser();		
+}
+
+
+
+// check which line station is in
 
 function findingStationLine (){
 
 	if (lines.alamein.includes(origin)){
-		ChosenLine = lines.alamein
+		chosenLine = lines.alamein;
 	}
 
 	else if (lines.glenWaverly.includes(origin)) {
-		ChosenLine = lines.glenWaverly
+		chosenLine = lines.glenWaverly;
 	}
 
 	else if (lines.sandringham.includes(origin)){
-		ChosenLine = lines.sandringham
+		chosenLine = lines.sandringham;
 	}
 
 	else  {
-		console.log("station does not exist!")
+		console.log("station does not exist!");
 		 
-	};
+	}
 	
-	return ChosenLine	
+	return chosenLine;
+
+	
 }
 
-findingStationLine();
 
-	// calculating indexes
-	var originIndex = ChosenLine.indexOf(origin);
-	var destIndex = ChosenLine.indexOf(destination);
-
-	// calculating number of stops
-
-	var numberOfStops = destIndex - originIndex;
+function outputToUser() {
 
 
-	// creating journey
-	var journey = ChosenLine.slice(originIndex, destIndex+1)
+	// creating final
+	final = chosenLine.slice(originIndex, destIndex+1);		
+	console.log("origin: " + origin);
+	console.log("destination: " + destination);
 
-	var outputToUser = function() {
-		console.log("origin: " + origin);
-		console.log("destination: " + destination);
+	console.log(numberOfStops + " stops");
+	console.log(final.join(" ---> "));
 
-		console.log(numberOfStops + " stops");
-		console.log(journey.join(" ---> "))
 }
 
-outputToUser()
 
-// .includes() method. 
+function findingTwoStations (x){
 
-/*use Object.keys(lines) to find properties in lines object*/
-
-// or For In
-
-// below is another solution
-/*for ( var i = chosenOrigin; i <= chosenDestination; i++){
-	if (i === chosenDestination){
-		route += glenWaverly[i]
-	}	
-
-	else {
-
-		route += (glenWaverly[i] + " -->");
-		
+	if (lines.alamein.includes(x)){
+		chosenLine2 = lines.alamein;
 	}
 
-}*/
-/*console.log(route);*/
+	else if (lines.glenWaverly.includes(x)) {
+		chosenLine2 = lines.glenWaverly;
+	}
+
+	else if (lines.sandringham.includes(x)){
+		chosenLine2 = lines.sandringham;
+	}
+
+	else  {
+		console.log("station does not exist!");
+		 
+	}
+	
+	return chosenLine2;
+}
 
 
+function route(){
 
+	var firstHalf = firstLine.slice(firstLine.indexOf(origin), firstLine.indexOf("Richmond") + 1);
+	
+	var secondHalf = secondLine.slice(secondLine.indexOf("Richmond") + 1, secondLine.indexOf(destination)+ 1);
 
+	final = firstHalf.concat(secondHalf);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	return final;
+}
 
 
