@@ -1,0 +1,29 @@
+*{
+	background-color: black;
+	text-align: center;
+	color: white;
+}
+
+.placeholder{
+	background-color: white;
+	font-family: normal;
+	color: black;
+}
+
+.nav{
+	font-size: 60px;
+
+}
+
+p{
+	font-size: bold;
+	font-size: 30px;
+}
+
+img{
+	background-size: 100px;
+}
+
+.old-movie {
+	font-family: 'Fascinate', cursive;
+}
