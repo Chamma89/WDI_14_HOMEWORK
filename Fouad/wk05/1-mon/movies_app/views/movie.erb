@@ -1,10 +1,10 @@
 <% if @the_movie['Year'].to_i < 1990%>
-<p class="old-movie"><%= @the_movie['Title'] %></p>
-<p class="old-movie"><%= @the_movie['Year'] %></p>
+	<p class="old-movie"><%= @the_movie['Title'] %></p>
+	<p class="old-movie"><%= @the_movie['Year'] %></p>
 
 <% else %>
-<p><%= @the_movie['Title'] %></p>
-<p><%= @the_movie['Year'] %></p>
+	<p><%= @the_movie['Title'] %></p>
+	<p><%= @the_movie['Year'] %></p>
 <% end %>
 
 

@@ -1,0 +1,12 @@
+<h1>Search Results</h1>
+
+	<ul>
+		<% @movie_results["Search"].each do |results| %>
+
+		<li><a href="/movie_input?movie=<%=results["Title"]%>"> <%= results["Title"] %></a></li>
+		<% end %>	
+	 	
+	</ul>
+	
+
+
