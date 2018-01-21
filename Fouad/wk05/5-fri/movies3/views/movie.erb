@@ -1,0 +1,26 @@
+
+
+<!-- THE FINAL PAGE -->
+
+
+
+	<p><%= @the_movie["Title"] %></p>
+	<p><%= @the_movie["Year"]%></p>
+
+
+	<img src="<%= @the_movie['Poster'] %>" alt="">
+
+
+	<div>
+		<form action="/movies/save" method="post">
+				<!-- <button>HOME</button> -->
+				<button value="">Save to DB</button>
+				
+				
+				<input type="hidden" name="movieTitle" value="<%= @the_movie["Title"] %>">
+		</form>
+
+	</div>
+
+
+
