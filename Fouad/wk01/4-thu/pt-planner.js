@@ -1,4 +1,4 @@
-YES// train lines
+// train lines
 var lines = {
 	alamein: ["flinders", "richmond", "east richmond", "burnley", "hawthorn", "glenferrie"],
   glenWaverly: ["flagstaff", "melbourne central", "parliament", "richmond", "kooyong", "tooronga"],
@@ -6,8 +6,8 @@ var lines = {
 };
 
 // user input
-var origin = prompt("Choose a starting station").replace(/ /g, "").toLowerCase();
-var destination = prompt("select your destination").replace(/ /g, "").toLowerCase();
+var origin = prompt("Choose a starting station").toLowerCase();
+var destination = prompt("select your destination").toLowerCase();
 
 // Chosen origin array
 var chosenLine = "";

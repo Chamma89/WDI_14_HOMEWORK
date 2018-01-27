@@ -13,22 +13,3 @@ CREATE TABLE movies (
 );
 
 
-INSERT INTO dishes (name, image_url) VALUES ('pudding', 'http://img.taste.com.au/bz2rQPJ6/taste/2016/11/soft-centred-chocolate-pudding-16964-1.jpeg');
-
-
-
-class Dish
-
-	self.find(id)
-		# works out the dish to return
-		# connect to db
-		# clean up the user input
-		# execite
-		# return even a fancy dish object
-	end	
-
-end
-
-dish = Dish.find(6)
-dish.name
-dish.image_url

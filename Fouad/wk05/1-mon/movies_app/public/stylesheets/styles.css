@@ -13,6 +13,7 @@
 .nav{
 	font-size: 60px;
 
+
 }
 
 p{
@@ -26,4 +27,9 @@ img{
 
 .old-movie {
 	font-family: 'Fascinate', cursive;
+}
+
+a:hover { 
+    background-color: white;
+    color: black;
 }

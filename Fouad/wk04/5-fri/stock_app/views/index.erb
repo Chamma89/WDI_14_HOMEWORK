@@ -4,14 +4,19 @@
 	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 	<link rel="stylesheet" href="/stocks-style.css">
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Stock App - Home Page</title>
 </head>
 <body class="indexBody">
-	<p><%= @name %></p>
+	<p class="name"><%= @name %></p>
+
+	<p><%= @exchange %></p>
+
+	<p class="symbol"><%= @symbol %></p>
 
 	<p class="percentage"><%= @percentage %>%</p>
 
 	<p><%= @price %> USD</p>
+
 
 	<a href="about">About page</a>
 

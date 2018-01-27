@@ -15,9 +15,7 @@ get '/search_results' do
 end
 
 
-
 get '/movies' do
-
 	result = HTTParty.get("http://omdbapi.com/?apikey=2f6435d9&t=#{params[:movie]}")
 	@the_movie = result.parsed_response
 	erb :movie

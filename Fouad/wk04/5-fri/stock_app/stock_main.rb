@@ -14,6 +14,10 @@ get '/' do
 
 	@name = stock.name
 
+	@symbol = stock.symbol
+
+	@exchange = stock.exchange
+
 	erb (:index)
 
 end 

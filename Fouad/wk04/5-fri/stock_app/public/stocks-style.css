@@ -24,3 +24,10 @@ p {
 a {
 	font-size: 10px;
 }
+
+.symbol {
+	float: right;
+	font-size: 15px;
+}
+
+
