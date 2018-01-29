@@ -1,0 +1,71 @@
+<p><%= @project.title%></p>
+
+<div class="main">
+	<div class="detail-image">
+		<img class="displayimg" src="<%= @project.preview.url%>" alt="">
+
+		<span>&#10084</span>
+
+		<form action="/comments" method="post">
+
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+			<textarea name="content" id="" cols="30" rows="3" placeholder="Insert Comment" ></textarea>
+			<input type="hidden" name="project_id" value="<%= @project.id%>">
+			<button>Post</button>	
+		</form>
+	</div>
+
+		<form action="/likes" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+			<input type="hidden" name="project_id" value="<%= @project.id%>">
+			<!-- <%= @project.likes.count%> -->
+			<span class="number">0</span>
+			<!-- <button>Like</button> -->
+		</form>
+	</div>	
+
+
+	<div class="detailsdiv">
+			<h2>Comments</h2>
+			<% @comments.each do |comment| %>
+				<p><%= comment.body%></p>
+			<% end %>
+	</div>	
+</div>
+
+
+<script>
+	var likeButton = document.querySelector("span")
+
+/*	function like (){
+		if(likeButton.style.color === "white"){
+			likeButton.style.color = "red"
+		}
+
+		else {
+			likeButton.style.color = "white"
+		}
+	}
+
+	likeButton.addEventListener('click', like)*/
+
+
+	likeButton.addEventListener('click', function(event){
+
+		likeButton.classList.toggle("color")
+
+		// closest goes upwards to search for the first of whatever is in brackets
+        var card = event.target.closest('body')
+        // querySelector goes downwards to search for the first of whatever is in brackets
+        var starCount = card.querySelector('.number')
+			starCount.textContent = Number(starCount.textContent) + 1
+
+      })
+
+
+
+
+
+
+
+</script>
