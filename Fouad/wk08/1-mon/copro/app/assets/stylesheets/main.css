@@ -71,7 +71,7 @@ img:hover {
 }
 
 .detail-image {
-	width: 100%;
+	width: 50%;
 	float: left;
 }
 
@@ -105,10 +105,20 @@ span {
 
 }
 
+#likes {
+	display: block;
+}
+
 span {
 	color: white;
 }
 
 span.number {
 	color: black;
+	display: block;
+}
+
+.detailsdiv {
+	float: right;
+	width: 40%;
 }
