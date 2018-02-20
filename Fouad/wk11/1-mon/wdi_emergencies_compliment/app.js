@@ -17,10 +17,23 @@ this.compliment = _.sample(this.compliments = [
   "It's almost beer o'clock",
   "The Force is strong with you"
 ])
-this.backgroundColor = _.sample(this.colors = ["#FFBF00", "#0080FF","#01DF3A","#FF0080"])
-	res.render('home');
+this.backgroundColor = _.sample(this.colors = ["#00bfff", "#FFD700","#90EE90","#B0C4DE"])
+	res.render('home', {} );
 });
 
 app.listen(PORT, function(){
 	console.log('listening on port ' + PORT );
+});
+
+app.get('/:user', function(req, res, next){
+ this.compliment = _.sample(this.compliments = [
+  "Your instructors love you",
+  "High five = ^5",
+  "Shut up and take my money",
+  "It's almost beer o'clock",
+  "The Force is strong with you"
+	])
+	this.person = (req.params.user)
+	this.backgroundColor = _.sample(this.colors = ["#00bfff", "#FFD700","#90EE90","#B0C4DE"])
+	res.render('Fred');
 });
